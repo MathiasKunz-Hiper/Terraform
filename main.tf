@@ -1,11 +1,11 @@
-#  module "testegrupos" {
-#   source = "../../modules/Seguranca"
-#   group_and_users = {
-#     "grupoterraformteste"  = ["mathias@hiper.com.br", "vitor.soberanski@hiper.com.br"]
-#     "grupoterraformteste2" = ["mathias@hiper.com.br", "vitor.soberanski@hiper.com.br"]
-#   }
+ module "testegrupos" {
+  source = "github.com/MathiasKunz-Hiper/Terraform//Seguranca?ref=modules"
+  group_and_users = {
+    "grupoterraformteste"  = ["mathias@hiper.com.br", "vitor.soberanski@hiper.com.br"]
+    "grupoterraformteste2" = ["mathias@hiper.com.br", "vitor.soberanski@hiper.com.br"]
+  }
 
-#  }
+ }
 
 # output "user_group_prod" {
 #   value = module.testegrupos.user_group_seguranca
@@ -51,4 +51,11 @@ resource "azurerm_role_assignment" "example" {
   scope                = data.azurerm_subscriptions.mpn.subscriptions[1].id
   role_definition_name = "Reader"
   principal_id         = data.azurerm_client_config.example.object_id
+}
+
+module "private_zone" {
+  source = "github.com/MathiasKunz-Hiper/Terraform.git//Private-DNS-Zone/Zone?ref=modules"
+
+  zone_name = "testeterraform.teste"
+  resource_group_name = "rg-testeterraform"
 }
