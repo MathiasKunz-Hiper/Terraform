@@ -1,4 +1,4 @@
-variable "networks" {
+variable "networks1" {
   type = map(object({
     cidr_block = string
     subnets    = map(object({ cidr_block = string }))
