@@ -27,7 +27,8 @@ module "identity-group" {
 
     
 
-    create_group = data.external.verify_group_exists[each.key].result.exists ? false : true
+    #create_group = data.external.verify_group_exists[each.key].result.exists ? false : true
+    create_group = true
     # group_object_id = data.external.verify_group_exists[each.value.group_name].result.object_id
     # user_name  = each.value.user_email
     group_name = each.key
