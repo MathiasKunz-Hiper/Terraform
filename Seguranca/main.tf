@@ -54,7 +54,7 @@ module "identity-assign-user-group" {
 #   value = module.identity.user_group_after_for_identity
 # }
 
-output "group_exists" {
+/*output "group_exists" {
   
   value = data.external.verify_group_exists["grupoterraformteste"].result.exists
-}
+}*/
